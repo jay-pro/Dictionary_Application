@@ -1,5 +1,5 @@
 package com.example.dictionaryapplication;
-// chuyển sang search view bản v7 nha Nhi
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -10,7 +10,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cursoradapter.widget.CursorAdapter;
+import androidx.cursoradapter.widget.CursorAdapter;//////////////
+import androidx.cursoradapter.widget.SimpleCursorAdapter;////////
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +26,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import
+//import android.widget.SimpleCursorAdapter;//-----------------------------------yt
+//import android.widget.CursorAdapter;                    //mới thêm
+//import android.support.v7.widget.CursorAdapter;         //mới thêm
+//import androidx.cursoradapter.widget.ResourceCursorAdapter;                //tự
+//import android.widget.CursorAdapter;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 super.swapCursor(cursor);
             }
         };
-        //search.setSuggestionsAdapter(suggestionAdapter);//35:30
+        search.setSuggestionsAdapter(suggestionAdapter);//35:30
         search.setOnSuggestionListener(new SearchView.OnSuggestionListener() {
             @Override
             public boolean onSuggestionSelect(int position) {

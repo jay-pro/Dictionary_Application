@@ -18,13 +18,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private String DB_PATH = null;
     private static String DB_NAME = "eng_dictionary.db";
     private SQLiteDatabase myDataBase;
-    private final Context myContext;
+    private final Context myContext;//:v
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null,1);
         this.myContext = context;
-        this.DB_PATH = "/data/data" + context.getPackageName() + "/" + "databases";
-        Log.e("Path 1", DB_PATH);
+        this.DB_PATH = "/data/data/" + context.getPackageName() + "/" + "databases";//yt tu thaays k co cai / cuoi
+        Log.e("Path 1", DB_PATH);//tui chạy thử hé ok Nhi
     }
 
     public void createDataBase() throws IOException{
@@ -105,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public Cursor getSuggestions(String text){
+        text = text.toUpperCase();
         Cursor c =myDataBase.rawQuery("SELECT _id, en_word FROM words WHERE en_word LIKE '"+text+"%' LIMIT 40",null);
         return c;
     }
@@ -115,7 +116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getHistory(){
         //Cursor c = myDataBase.rawQuery("SELECT DISTINT word FROM history ORDER BY _id DESC",null);
-        Cursor c = myDataBase.rawQuery("SELECT DISTINT word, en_definition FROM history h JOIN words w ON h.word==w.en_word ORDER BY h._id DESC",null);
+        Cursor c = myDataBase.rawQuery("SELECT DISTINCT word, en_definition FROM history h JOIN words w ON h.word==w.en_word ORDER BY h.id DESC",null);
         return c;
     }
 

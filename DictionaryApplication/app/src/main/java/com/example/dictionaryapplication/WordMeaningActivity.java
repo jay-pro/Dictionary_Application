@@ -11,13 +11,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -34,6 +33,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class WordMeaningActivity extends AppCompatActivity {
 
@@ -236,8 +236,7 @@ public class WordMeaningActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void setSupportActionBar(Toolbar toolbar) {
-    }
+
 
 
 }
